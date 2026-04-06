@@ -16,6 +16,7 @@ export class GeneticAlgorithm {
     private maxGenerations: number = 1000,
     private crossoverRate: number = 0.9,
     private elitismCount: number = 1,
+    private targetFitnessThreshold?: number,
   ) {}
 
   public execute(): Individual {
@@ -34,6 +35,13 @@ export class GeneticAlgorithm {
       const generationBest = population[0]
       if (generationBest === undefined) {
         throw new Error('Population cannot be empty during execution.')
+      }
+
+      if (
+        this.targetFitnessThreshold !== undefined
+        && generationBest.fitness <= this.targetFitnessThreshold
+      ) {
+        return generationBest
       }
 
       if (generationBest.fitness < globalBest.fitness) {

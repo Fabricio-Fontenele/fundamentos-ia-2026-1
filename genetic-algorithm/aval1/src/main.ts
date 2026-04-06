@@ -1,128 +1,159 @@
 import { GeneticAlgorithm } from './core/genetic-algorithm'
-import type { IFitnessFunction } from './domain/interfaces'
-import { AckleyProblem } from './problems/ackley'
+import type { ICrossoverStrategy, IFitnessFunction, IMutationStrategy, ISelectionStrategy } from './domain/interfaces'
 import { BohachevskyProblem } from './problems/bohachevsky'
+import { CamelBack3Problem } from './problems/camelback3'
 import { ArithmeticCrossover } from './strategies/crossover/arithmetic-crossover'
 import { SimpleMutation } from './strategies/mutation/simple-mutation'
+import { RankSelection } from './strategies/selection/rank-selection'
 import { TournamentSelection } from './strategies/selection/tournament-selection'
+import { CountingFitnessFunction } from './utils/counting-fitness-function'
 
-const NUM_REPETICOES = 100
-const TARGET_FITNESS = 0
+type GeneticAlgorithmConfig = {
+  maxGenerations: number
+  populationSize: number
+  elitismCount: number
+  crossoverRate: number
+  mutationRate: number
+}
 
-type ExperimentConfig = {
+type ExperimentCase = {
   problemName: string
   problemFactory: () => IFitnessFunction
   tolerance: number
+  selectionFactory: () => ISelectionStrategy
+  crossoverFactory: () => ICrossoverStrategy
+  mutationFactory: (context: MutationFactoryContext) => IMutationStrategy
 }
 
-class CountingFitnessFunction implements IFitnessFunction {
-  public evaluations = 0
-
-  constructor(private baseFitness: IFitnessFunction) {}
-
-  get upperBound(): number {
-    return this.baseFitness.upperBound
-  }
-
-  get lowerBound(): number {
-    return this.baseFitness.lowerBound
-  }
-
-  get dimension(): number {
-    return this.baseFitness.dimension
-  }
-
-  calculateFitness(genes: number[]): number {
-    this.evaluations++
-    return this.baseFitness.calculateFitness(genes)
-  }
+type MutationFactoryContext = {
+  mutationRate: number
+  lowerBound: number
+  upperBound: number
 }
 
-type ResultRow = {
-  problem: string
-  dimension: number
-  nfe: string
-  sr: string
+type RunnerConfig = {
+  totalRuns: number
+  progressInterval: number
+  targetFitness: number
+  ga: GeneticAlgorithmConfig
 }
 
-function runTests(config: ExperimentConfig): ResultRow {
-  const { problemFactory, problemName, tolerance } = config
-  const dimension = problemFactory().dimension
-  let NFEFinal = 0
-  let SRFinal = 0
+const RUNNER_CONFIG: RunnerConfig = {
+  totalRuns: 100,
+  progressInterval: 10,
+  targetFitness: 0,
+  ga: {
+    maxGenerations: 1000,
+    populationSize: 100,
+    elitismCount: 2,
+    crossoverRate: 0.9,
+    mutationRate: 0.01,
+  },
+}
 
-  for (let i = 0; i < NUM_REPETICOES; i++) {
-    let NFE = 0
-    const problem = new CountingFitnessFunction(problemFactory())
-    const selection = new TournamentSelection(3)
-    const crossover = new ArithmeticCrossover()
-    const mutation = new SimpleMutation(0.05, problem.lowerBound, problem.upperBound)
+type ResultRow = { problem: string; dimension: number; averageNfe: string; sr: string }
 
-    const ag = new GeneticAlgorithm(problem, selection, crossover, mutation)
-    const bestIndividual = ag.execute()
+class ExperimentRunner {
+  constructor(
+    private config: RunnerConfig,
+    private cases: ExperimentCase[],
+  ) {}
 
-    NFE = problem.evaluations
-    NFEFinal += NFE
+  public execute(): void {
+    const results = this.cases.map((experimentCase) => this.runExperiment(experimentCase))
+    this.printResults(results)
+  }
 
-    if (Math.abs(bestIndividual.fitness - TARGET_FITNESS) < tolerance) {
-      SRFinal++
+  private runExperiment(experimentCase: ExperimentCase): ResultRow {
+    const { problemName, problemFactory, tolerance } = experimentCase
+    const { totalRuns, progressInterval } = this.config
+
+    console.log(`Iniciando ${totalRuns} execucoes para ${problemName}...`)
+
+    const dimension = problemFactory().dimension
+    let successCount = 0
+    let totalNfe = 0
+
+    for (let currentRun = 1; currentRun <= totalRuns; currentRun++) {
+      const runResult = this.runSingleExecution(experimentCase)
+      totalNfe += runResult.nfe
+
+      if (runResult.success) {
+        successCount++
+      }
+
+      if (currentRun % progressInterval === 0) {
+        console.log(`Progresso ${problemName}: ${currentRun}/${totalRuns} execucoes concluidas.`)
+      }
+    }
+
+    return {
+      problem: problemName,
+      dimension,
+      averageNfe: Math.round(totalNfe / totalRuns).toString(),
+      sr: `${((successCount / totalRuns) * 100).toFixed(2)}%`,
     }
   }
 
-  const successRate = (SRFinal / NUM_REPETICOES) * 100
+  private runSingleExecution(experimentCase: ExperimentCase): { success: boolean; nfe: number } {
+    const { problemFactory, tolerance, selectionFactory, crossoverFactory, mutationFactory } = experimentCase
+    const problem = new CountingFitnessFunction(problemFactory())
+    const gaConfig = this.config.ga
 
-  return {
-    problem: problemName,
-    dimension,
-    nfe: `${NFEFinal}`,
-    sr: `${successRate.toFixed(2)}%`,
+    const ga = new GeneticAlgorithm(
+      problem,
+      selectionFactory(),
+      crossoverFactory(),
+      mutationFactory({
+        mutationRate: gaConfig.mutationRate,
+        lowerBound: problem.lowerBound,
+        upperBound: problem.upperBound,
+      }),
+      gaConfig.populationSize,
+      gaConfig.maxGenerations,
+      gaConfig.crossoverRate,
+      gaConfig.elitismCount,
+      tolerance,
+    )
+
+    const bestIndividual = ga.execute()
+
+    return {
+      success: Math.abs(bestIndividual.fitness - this.config.targetFitness) < tolerance,
+      nfe: problem.evaluations,
+    }
+  }
+
+  private printResults(rows: ResultRow[]): void {
+    console.log('\n=== RESULTADOS FINAIS ===')
+    console.log('| Problem | n | NFE (media) | SR |')
+    console.log('| :--- | :--- | :--- | :--- |')
+
+    rows.forEach((row) => {
+      console.log(`| **${row.problem}** | ${row.dimension} | ${row.averageNfe} | ${row.sr} |`)
+    })
   }
 }
 
-function padCell(value: string, width: number): string {
-  return value.padEnd(width, ' ')
-}
-
-function printResults(rows: ResultRow[]): void {
-  const headers = ['Problem', 'n', 'NFE (bruto)', 'SR']
-
-  const tableRows = rows.map((row) => [row.problem, String(row.dimension), row.nfe, row.sr])
-  const widths = headers.map((header, index) => {
-    const maxContentWidth = tableRows.reduce((max, row) => Math.max(max, row[index]?.length ?? 0), 0)
-    return Math.max(header.length, maxContentWidth)
-  })
-
-  const border = `+-${widths.map((width) => '-'.repeat(width)).join('-+-')}-+`
-  const headerLine = `| ${headers.map((header, i) => padCell(header, widths[i] ?? header.length)).join(' | ')} |`
-
-  console.log('Resumo')
-  console.log(border)
-  console.log(headerLine)
-  console.log(border)
-
-  for (const row of tableRows) {
-    console.log(`| ${row.map((value, i) => padCell(value, widths[i] ?? value.length)).join(' | ')} |`)
-  }
-
-  console.log(border)
-}
-
-const results: ResultRow[] = []
-
-results.push(
-  runTests({
+const experimentRunner = new ExperimentRunner(RUNNER_CONFIG, [
+  {
     problemName: 'BF1',
     problemFactory: () => new BohachevskyProblem(),
     tolerance: 0.01,
-  }),
-)
-
-results.push(
-  runTests({
-    problemName: 'ACK',
-    problemFactory: () => new AckleyProblem(),
+    selectionFactory: () => new TournamentSelection(3),
+    crossoverFactory: () => new ArithmeticCrossover(),
+    mutationFactory: ({ mutationRate, lowerBound, upperBound }) =>
+      new SimpleMutation(mutationRate, lowerBound, upperBound),
+  },
+  {
+    problemName: 'CB3',
+    problemFactory: () => new CamelBack3Problem(),
     tolerance: 0.01,
-  }),
-)
+    selectionFactory: () => new RankSelection(),
+    crossoverFactory: () => new ArithmeticCrossover(),
+    mutationFactory: ({ mutationRate, lowerBound, upperBound }) =>
+      new SimpleMutation(mutationRate, lowerBound, upperBound),
+  },
+])
 
-printResults(results)
+experimentRunner.execute()
