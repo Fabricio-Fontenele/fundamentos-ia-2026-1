@@ -16,9 +16,8 @@ export class TournamentSelection implements ISelectionStrategy {
   }
 
   private runTournament(population: Individual[], excluded?: Individual): Individual {
-    const candidatePool = excluded !== undefined
-      ? population.filter((individual) => individual !== excluded)
-      : population
+    const candidatePool =
+      excluded !== undefined ? population.filter((individual) => individual !== excluded) : population
     const pool = candidatePool.length > 0 ? candidatePool : population
     const effectiveTournamentSize = Math.min(this.tournamentSize, pool.length)
 
