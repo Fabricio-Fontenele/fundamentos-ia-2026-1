@@ -1,3 +1,6 @@
+# KNN - Exercício 
+## considere os seguintes dados relacionado ao dataset Iris:
+
 | id  | SepalLengthCm | SepalWidthCm | PetalLengthCm | PetalWidthCm | Species         |
 | --- | ------------- | ------------ | ------------- | ------------ | --------------- |
 | 63  | 6             | 2.2          | 4             | 1            | Iris-versicolor |
