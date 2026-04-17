@@ -86,3 +86,48 @@ $d(t, 8) = \sqrt{(6.1 - 5.1)^2 + (2.8 - 3.4)^2 + (4 - 1.5)^2 + (1.3 - 0.2)^2} = 
 3- NN: Iris-versicolor
 4- NN: Iris-versicolor
 
+## Desafio de completude:
+
+|     |     |     |     |     |                 |
+| --- | --- | --- | --- | --- | --------------- |
+| #90 | 5.5 | 2.5 | ??? | 1.3 | Iris-versicolor |
+
+
+$D = \sqrt{(5.5 - 6.0)^2 + (2.5 - 2.2)^2 + (1.3 - 1)^2} \approx 0.66 $
+
+$D = \sqrt{(5.5 - 6.5)^2 + (2.5 - 3)^2 + (1.3 - 2.2)^2} = \sqrt{1 + 0.25 + 0.81} = \sqrt{2.06} \approx 1.43$
+
+$D = \sqrt{(5.5 - 5.8)^2 + (2.5 - 2.7)^2 + (1.3 - 1.2)^2} = \sqrt{0.09 + 0.04  + 0.01} = \sqrt{0.14} \approx 0.37$
+
+$D = \sqrt{(5.5 - 5.2)^2 + (2.5 - 4.1)^2 + (1.3 - 0.1)^2} = \sqrt{0.09 + 2.56 + 1.44} = \sqrt{4.09} \approx 2.02$
+
+$D = \sqrt{(5.5 - 6.5)^2 + (2.5 - 3)^2 + (1.3 - 2)^2} = \sqrt{1 + 0.25 + 0.49} = \sqrt{1.74} \approx 1.32$
+
+$D = \sqrt{(5.5 - 5.4)^2 + (2.5 - 3.9)^2 + (1.3 - 0.4)^2} = \sqrt{0.01 + 1.96 + 0.81} = \sqrt{2.78} \approx 1.67$
+
+$D = \sqrt{(5.5 - 6.3)^2 + (2.5 - 2.7)^2 + (1.3 - 1.8)^2} = \sqrt{0.64 + 0.04 + 0.25} = \sqrt{0.93} \approx 0.96$
+
+$D = \sqrt{(5.5 - 5.1)^2 + (2.5 - 3.4)^2 + (1.3 - 0.2)^2} = \sqrt{0.16 + 0.81 + 1.21} = \sqrt{2.18} \approx 1.48$
+
+| Ranking | ID  | Distância | Species         | PetalLengthCm |
+| ------- | --- | --------- | --------------- | ------------- |
+| 1       | 83  | 0.37      | Iris-versicolor | 3.9           |
+| 2       | 63  | 0.66      | Iris-versicolor | 4.0           |
+| 3       | 124 | 0.96      | Iris-virginica  | 4.9           |
+| 4       | 148 | 1.32      | Iris-virginica  | 5.2           |
+| 5       | 105 | 1.43      | Iris-virginica  | 5.8           |
+| 6       | 40  | 1.48      | Iris-setosa     | 1.5           |
+| 7       | 6   | 1.67      | Iris-setosa     | 1.7           |
+| 8       | 33  | 2.02      | Iris-setosa     | 1.5           |
+
+Estimando o valor faltante de `PetalLengthCm` por média dos vizinhos mais próximos:
+
+- 2-NN: $(3.9 + 4.0)/2 = 3.95$
+- 3-NN: $(3.9 + 4.0 + 4.9)/3 \approx 4.27$
+- 4-NN: $(3.9 + 4.0 + 4.9 + 5.2)/4 = 4.50$
+
+Como a instância já é `Iris-versicolor`, a estimativa mais coerente é usar os vizinhos versicolor mais próximos (2-NN):
+
+$\boxed{\text{PetalLengthCm} \approx 3.95 \; (\approx 4.0)}$
+
+
