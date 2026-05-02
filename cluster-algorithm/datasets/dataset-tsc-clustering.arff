@@ -1,0 +1,132 @@
+@RELATION dataset_tsc_clustering
+
+@ATTRIBUTE idade NUMERIC
+@ATTRIBUTE altura NUMERIC
+@ATTRIBUTE sexo NUMERIC
+@ATTRIBUTE usa_oculos_lente NUMERIC
+@ATTRIBUTE vai_se_formar_esse_ano_por_voce_sem_contar_decisao_de_professores NUMERIC
+@ATTRIBUTE terminou_o_terceiro_ano_em_escola_publica NUMERIC
+@ATTRIBUTE ja_tem_uma_graduacao NUMERIC
+@ATTRIBUTE esta_em_um_relacionamento_afetivo_nao_e_estado_civil NUMERIC
+@ATTRIBUTE estagiando_trabalhando_qualquer_atividade_remunerada_conta_ex_bolsista_pet NUMERIC
+@ATTRIBUTE estado_civil NUMERIC
+@ATTRIBUTE mora_com_os_pais NUMERIC
+@ATTRIBUTE tem_irmaos_irmas NUMERIC
+@ATTRIBUTE tem_animal_de_estimacao NUMERIC
+@ATTRIBUTE tem_cnh_carteira_nacional_de_habilitacao NUMERIC
+@ATTRIBUTE dirige_ou_pilota_veiculos_automotores NUMERIC
+@ATTRIBUTE cor_da_pele_branca NUMERIC
+@ATTRIBUTE cor_da_pele_negra NUMERIC
+@ATTRIBUTE cor_da_pele_parda NUMERIC
+@ATTRIBUTE cabelo2_cacheado_encaracolado NUMERIC
+@ATTRIBUTE cabelo2_liso NUMERIC
+@ATTRIBUTE cabelo2_ondulado NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_animacao NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_aventura NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_acao NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_comedia NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_drama NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_fantasia NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_ficcao_cientifica NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_romance NUMERIC
+@ATTRIBUTE genero_de_filme_ou_serie_favorito_terror NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_ecletico NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_eurobeat NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_forro NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_gospel NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_hip_hop NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_mpb NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_pop NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_rap NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_rock NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_sertanejo NUMERIC
+@ATTRIBUTE genero_estilo_musical_favorito_trap_rap NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_assistir NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_assistir_series NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_cantar NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_desenhar NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_desenho NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_futebol NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_games NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_instrumentos NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_jiu_jitsu NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_jogar NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_jogar_jogos_virtuais NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_jogos NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_ler NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_programar NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_sinuca NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_tocar_guitarra NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_treinar NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_ver_tiktok NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_videogame NUMERIC
+@ATTRIBUTE hobby_passatempo_favorito_procastinar_jogar_jogos NUMERIC
+@ATTRIBUTE linguagem_de_programacao_favorita_c NUMERIC
+@ATTRIBUTE linguagem_de_programacao_favorita_go NUMERIC
+@ATTRIBUTE linguagem_de_programacao_favorita_java NUMERIC
+@ATTRIBUTE linguagem_de_programacao_favorita_lua NUMERIC
+@ATTRIBUTE linguagem_de_programacao_favorita_python NUMERIC
+@ATTRIBUTE linguagem_de_programacao_favorita_typescript NUMERIC
+@ATTRIBUTE sistema_operacional_desktop_utilizado_linux NUMERIC
+@ATTRIBUTE sistema_operacional_desktop_utilizado_windows NUMERIC
+@ATTRIBUTE sistema_operacional_mobile_utilizado_android NUMERIC
+@ATTRIBUTE sistema_operacional_mobile_utilizado_ios NUMERIC
+@ATTRIBUTE ide_ambiente_de_desenvolvimento_integrado_favorito_bloco_de_notas NUMERIC
+@ATTRIBUTE ide_ambiente_de_desenvolvimento_integrado_favorito_intellij NUMERIC
+@ATTRIBUTE ide_ambiente_de_desenvolvimento_integrado_favorito_nvim NUMERIC
+@ATTRIBUTE ide_ambiente_de_desenvolvimento_integrado_favorito_vs_code NUMERIC
+@ATTRIBUTE ide_ambiente_de_desenvolvimento_integrado_favorito_visual_studio NUMERIC
+@ATTRIBUTE navegador_favorito_brave NUMERIC
+@ATTRIBUTE navegador_favorito_chrome NUMERIC
+@ATTRIBUTE navegador_favorito_edge NUMERIC
+@ATTRIBUTE navegador_favorito_firefox NUMERIC
+@ATTRIBUTE navegador_favorito_opera_gx NUMERIC
+@ATTRIBUTE voce_quer_ser_qual_stack_back_end NUMERIC
+@ATTRIBUTE voce_quer_ser_qual_stack_front_end NUMERIC
+@ATTRIBUTE voce_quer_ser_qual_stack_full_stack NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_anapurus NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_araioses NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_cocal NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_distrito_federal NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_ilha_grande_pi NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_luzilandia NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_parnaiba {cidade_de_origem_sem_estado_parnaiba}
+@ATTRIBUTE cidade_de_origem_sem_estado_parnaiba {cidade_de_origem_sem_estado_parnaiba}
+@ATTRIBUTE cidade_de_origem_sem_estado_piracuruca NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_santa_quiteria_do_maranhao NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_sao_paulo NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_teresina NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_tutoia NUMERIC
+@ATTRIBUTE cidade_de_origem_sem_estado_agua_doce NUMERIC
+
+@DATA
+1,3,1,1,1,1,0,0,1,0,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+1,3,1,1,1,1,0,1,1,0,1,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+4,2,1,0,1,0,1,1,1,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+4,2,1,0,0,1,0,1,0,0,1,1,1,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+1,4,1,0,1,0,0,0,1,0,1,1,1,1,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+1,3,1,0,1,0,0,1,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+1,3,1,1,1,1,0,0,1,0,1,1,1,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+1,2,1,1,1,0,0,0,1,0,1,0,1,0,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+1,2,1,0,1,0,0,0,1,0,1,1,1,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+1,2,1,0,1,0,0,1,1,0,0,1,1,0,1,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,3,1,0,1,1,0,1,1,0,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+4,2,1,1,1,1,0,0,1,0,1,1,1,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+2,4,1,0,1,1,0,0,1,0,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+1,3,1,0,1,1,0,0,1,0,0,1,1,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+1,2,1,0,1,1,0,0,1,0,1,1,1,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+4,2,0,0,1,1,0,1,1,1,0,1,1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+1,3,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+1,2,1,0,1,0,0,1,1,0,1,1,1,1,1,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+3,2,1,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+1,2,0,1,1,1,0,1,1,0,0,1,1,0,1,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+2,3,1,1,1,0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+1,2,1,1,1,0,0,1,1,0,1,1,1,1,1,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+4,3,1,0,1,1,0,0,1,0,1,1,1,0,1,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+2,4,1,0,0,1,0,0,1,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+1,3,1,1,1,1,0,1,1,0,1,0,1,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+1,3,1,1,1,1,0,0,1,0,1,1,1,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+1,4,1,1,1,0,0,0,0,0,1,1,1,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+2,2,1,1,1,1,0,0,1,0,1,1,1,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+2,2,1,0,1,1,0,1,1,0,1,1,1,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+2,1,1,1,0,1,0,0,1,0,1,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0
