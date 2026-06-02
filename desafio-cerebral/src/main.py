@@ -11,7 +11,7 @@ Execução: python -m src.main
 import numpy as np
 
 from . import report
-from .config import ARQUIVO_TREINO, ETA, MAX_EPOCAS, N_TREINOS
+from .config import ARQUIVO_TREINO, ETA, MAX_EPOCAS, N_TREINOS, SEMENTE
 from .data import AMOSTRAS_TESTE, carregar_teste, carregar_treino
 from .perceptron import classificar, treinar
 
@@ -20,7 +20,7 @@ def main():
     X_treino, d_treino = carregar_treino(ARQUIVO_TREINO)
     X_teste = carregar_teste()
 
-    rng = np.random.default_rng()
+    rng = np.random.default_rng(SEMENTE)
     treinos = [
         treinar(X_treino, d_treino, ETA, MAX_EPOCAS, rng) for _ in range(N_TREINOS)
     ]
