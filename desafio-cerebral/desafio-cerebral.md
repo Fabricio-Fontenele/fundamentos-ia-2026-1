@@ -145,8 +145,6 @@
 
 ## Projeto Prático
 
-Utilizando o algoritmo supervisionado de Hebb para classificar a pureza do óleo em duas classes ($P_1$ e $P_2$), com taxa de aprendizagem $\eta = 0{,}01$, foram executados cinco treinamentos da rede Perceptron, iniciando-se em cada treinamento o vetor de pesos $\mathbf{w}$ com valores aleatórios entre zero e um. A rede possui três entradas ($x_1$, $x_2$, $x_3$) e o limiar de ativação $\theta$ é tratado como o peso $w_0$ associado a uma entrada fixa $x_0 = -1$, totalizando o vetor $\mathbf{w} = (w_0, w_1, w_2, w_3)$. O treinamento utilizou as 29 amostras do arquivo anexo, e a convergência foi alcançada quando todas as amostras passaram a ser classificadas corretamente em uma mesma época. A implementação encontra-se em `src/`, e os resultados a seguir são reproduzíveis (semente aleatória fixada em 42).
-
 ### Resultados dos cinco treinamentos
 
 | Treino | Pesos iniciais ($w_0$, $w_1$, $w_2$, $w_3$) | Pesos finais ($w_0$, $w_1$, $w_2$, $w_3$) | Nº de épocas |
@@ -157,11 +155,7 @@ Utilizando o algoritmo supervisionado de Hebb para classificar a pureza do óleo
 | T4 | (0,6439; 0,8228; 0,4434; 0,2272) | (−3,0761; 1,5333; 2,4680; −0,7312) | 395 |
 | T5 | (0,5546; 0,0638; 0,8276; 0,6317) | (−3,0654; 1,5538; 2,4592; −0,7304) | 418 |
 
-Observa-se que, embora os pesos iniciais sejam distintos em cada treinamento e o número de épocas até a convergência varie (de 395 a 439 épocas), os pesos finais convergem para valores muito próximos entre si, indicando que o problema é linearmente separável e que as cinco redes encontraram fronteiras de decisão praticamente equivalentes.
-
 ### Classificação das amostras de teste
-
-Após o treinamento, cada uma das cinco redes ($T_1$ a $T_5$) foi colocada em operação para classificar automaticamente as dez amostras a seguir, atribuindo a cada uma a classe de pureza $P_1$ ou $P_2$.
 
 | Amostra | $x_1$ | $x_2$ | $x_3$ | $y(T_1)$ | $y(T_2)$ | $y(T_3)$ | $y(T_4)$ | $y(T_5)$ |
 | :-----: | -------- | -------- | ------- | :------: | :------: | :------: | :------: | :------: |
@@ -175,5 +169,3 @@ Após o treinamento, cada uma das cinco redes ($T_1$ a $T_5$) foi colocada em op
 | 8 | −0,6920 | 0,9404 | 4,4058 | P1 | P1 | P1 | P1 | P1 |
 | 9 | −1,3970 | 0,7141 | 4,9263 | P2 | P2 | P2 | P2 | P2 |
 | 10 | −1,8842 | −0,2805 | 1,2548 | P2 | P2 | P2 | P2 | P2 |
-
-As cinco redes produziram exatamente a mesma classificação para todas as dez amostras, resultado coerente com o esperado: por se tratar de um problema linearmente separável e já devidamente treinado, as fronteiras de decisão obtidas nos cinco treinamentos são essencialmente equivalentes, de modo que as amostras de teste, situadas suficientemente afastadas da fronteira, são rotuladas de forma idêntica por todas elas.
